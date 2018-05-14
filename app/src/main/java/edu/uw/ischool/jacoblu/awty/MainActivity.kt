@@ -39,11 +39,13 @@ class MainActivity : AppCompatActivity() {
                                 1000 * 60 * timeintervalInput.text.toString().toLong(), alarmIntent)
                     } else {
                         if (!messageInput.text.isNotEmpty()) {
-                            Toast.makeText(this, "Text box cannot be empty", Toast.LENGTH_LONG).show()
-                        } else if (phoneInput.text.length != 10) {
-                            Toast.makeText(this, "Phone number must be 10 digits", Toast.LENGTH_LONG).show()
-                        } else if (timeintervalInput.text.toString().toLong() <= 0) {
-                            Toast.makeText(this, "Interval must be larger than 0 minutes", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Text box cannot be empty", Toast.LENGTH_SHORT).show()
+                        }
+                        if (phoneInput.text.length != 10) {
+                            Toast.makeText(this, "Phone number must be 10 digits", Toast.LENGTH_SHORT).show()
+                        }
+                        if (!timeintervalInput.text.isNotEmpty() || timeintervalInput.text.toString().toLong() <= 0) {
+                            Toast.makeText(this, "Interval must be larger than 0 minutes", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
